@@ -1,5 +1,13 @@
 package com.duocconecta.ms_contacto.exception;
 
-public class ApiError {
-    
+import java.time.Instant;
+import java.util.List;
+
+public record ApiError(
+        Instant timestamp,
+        int status,
+        String error,
+        String mensaje,
+        List<String> detalles
+) {
 }
