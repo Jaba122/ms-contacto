@@ -1,0 +1,36 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: ms-contacto
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/duocconecta_contacto
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Reemplazar <AZURE_TENANT_ID> por el tenant real de la app registrada en Azure AD.
+          issuer-uri: https://login.microsoftonline.com/<AZURE_TENANT_ID>/v2.0
+
+duocconecta:
+  dominio-institucional: duocuc.cl
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
